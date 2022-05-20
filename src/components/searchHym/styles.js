@@ -5,36 +5,33 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     width: 1000px;
-    height: 700px;
-    background-color: #232222;
-    border-radius: 50px;
+    height: 100%;
+    background-color: #262525;
+    border-radius: 30px;
+    color: #fff;
+
+    @media (max-width: 900px) {
+        width: 100%;
+    }
 
     input {
         width: 200px;
-        height: 50px;
+        height: 60px;
         outline: none;
+        color: #fff;
         background: transparent;
         border: 1px solid #fff;
-        color: #fff;
-        font-size: 20px;
+        font-size: 30px;
     }
 
     h1 {
         font-size: 50px;
         padding-top: 20px;
     }
-
-    @media (max-width: 900px) {
-        h1 {
-        font-size: 30px;
-        padding-top: 20px;
-        }
-    }
 `;
 
 export const InputContainer = styled.div`
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 `;
-

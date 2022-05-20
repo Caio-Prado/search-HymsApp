@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, InputContainer } from './styles';
 import ResultsSearch from '../resultsSearch';
-import dataHyms, { hinos } from '../../mocks/correlacaoDeHinos';
+import { hinos } from '../../mocks/correlacaoDeHinos';
 import { useState } from 'react';
 
 export default function () {
