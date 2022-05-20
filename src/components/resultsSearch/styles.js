@@ -22,6 +22,7 @@ export const Container = styled.div`
         background: transparent;
         border: 1px solid #fff;
         font-size: 30px;
+        text-align: center;
     }
 
     h1 {

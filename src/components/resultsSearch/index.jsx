@@ -22,8 +22,10 @@ const SearchHymn = () => {
                 <h1>Correlação Hinos CCB</h1>
                     <InputContainer>
                         <p>Digite o número do hino abaixo:</p>
-                        <input 
-                        type="search"
+                        <input
+                        oninput="javascript: `if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        type = "number"
+                        maxlength = "3"
                         value={hymn}
                         onChange={(e) => setHymn(e.target.value)}
                         maxLength={3}
