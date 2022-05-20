@@ -1,53 +1,75 @@
 import React from 'react';
-import { hinos } from '../../mocks/correlacaoDeHinos';
+import { useState, useEffect } from 'react';
+import { Container, InputContainer } from './styles';
 import './styles.css'
+import api from '../../services/api'
 
-const resultsSearch = (hym, chooseHym) => {
+const SearchHymn = () => {
+    const [hymns, setHymns] = useState([]);
+    const [hymn, setHymn] = useState('');
+
+    useEffect(() => {
+
+        api.get(`hinos/${hymn}`).then((response) => { 
+            
+        setHymns(response.data) })
     
+        },[hymns],[hymn])
+
     return (
         <div>
-            {hinos.map((hino) => (
-            <table key={hino.id} className="container">
-                <tbody>
-                    <tr>
-                        <td>Correlação</td>
-                        <td className="title">Hinário 5</td>
-                        <td className="title">Hinário 4</td>
-                    </tr>
-                    <tr>
-                        <td>Hino</td>
-                        <td>{hino.id}</td>
-                        <td>{hino.hinario4}</td>
-                    </tr>
-                    <tr>
-                        <td>Título</td>
-                        <td>{hino.tituloH5}</td>
-                        <td>{hino.tituloH4}</td>
-                    </tr>
-                    <tr>
-                        <td>Acidentes</td>
-                        <td>{hino.acidentesH5}</td>
-                        <td>{hino.acidentesH4}</td>
-                    </tr>
-                <tr>
-                        <td>Tonalidade</td>
-                        <td>{hino.tonalidadeH5}</td>
-                        <td>{hino.tonalidadeH4}</td>
-                    </tr>
-                <tr>
-                        <td>Compasso</td>
-                        <td>{hino.compassoH5}</td>
-                        <td>{hino.compassoH4}</td>
-                    </tr>
-                <tr>
-                        <td>Autores</td>
-                        <td>{hino.autoresH5}</td>
-                        <td>{hino.autoresH4}</td>
-                    </tr>
-                </tbody>
-            </table>
-            ))}
+            <Container>
+                <h1>Correlação Hinos CCB</h1>
+                    <InputContainer>
+                        <p>Digite o número do hino abaixo:</p>
+                        <input 
+                        type="search"
+                        value={hymn}
+                        onChange={(e) => setHymn(e.target.value)}
+                        maxLength={3}
+                        />
+                    </InputContainer>
+                        <table className="container">
+                            <tbody>
+                                <tr>
+                                    <td>Correlação</td>
+                                    <td className="title">Hinário 5</td>
+                                    <td className="title">Hinário 4</td>
+                                </tr>
+                                <tr>
+                                    <td>Hino</td>
+                                    <td>{hymns.id}</td>
+                                    <td>{hymns.hinario4}</td>
+                                </tr>
+                                <tr>
+                                    <td>Título</td>
+                                    <td>{hymns.tituloH5}</td>
+                                    <td>{hymns.tituloH4}</td>
+                                </tr>
+                                <tr>
+                                    <td>Acidentes</td>
+                                    <td>{hymns.acidentesH5}</td>
+                                    <td>{hymns.acidentesH4}</td>
+                                </tr>
+                            <tr>
+                                    <td>Tonalidade</td>
+                                    <td>{hymns.tonalidadeH5}</td>
+                                    <td>{hymns.tonalidadeH4}</td>
+                                </tr>
+                            <tr>
+                                    <td>Compasso</td>
+                                    <td>{hymns.compassoH5}</td>
+                                    <td>{hymns.compassoH4}</td>
+                                </tr>
+                            <tr>
+                                    <td>Autores</td>
+                                    <td>{hymns.autoresH5}</td>
+                                    <td>{hymns.autoresH4}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </Container>           
         </div>
     )
 }
-export default resultsSearch;
+export default SearchHymn;

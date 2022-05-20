@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import SearchHym from './components/searchHym';
+import SearchHym from './components/resultsSearch';
 
 function App() {
   return (
