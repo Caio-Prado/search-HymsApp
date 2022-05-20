@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, InputContainer } from './styles';
 import ResultsSearch from '../resultsSearch';
-import { useState, useEffect } from 'react';
-import dataHyms from '../../mocks/correlacaoHinosCCB.json';
+import dataHyms, { hinos } from '../../mocks/correlacaoDeHinos';
+import { useState } from 'react';
 
 export default function () {
-    const [hym, setHym] = useState('');
+    const [hym, setHym] = useState(hinos);
+    const [chooseHym, setChooseHym] = useState('');
 
     return (
         <div>
@@ -15,12 +16,11 @@ export default function () {
                     <p>Digite o número do hino abaixo:</p>
                     <input 
                     type="search" 
-                    value={hym}
-                    onChange={(e) => setHym(e.target.value)} 
+                    onChange={(e) => setChooseHym(e.target.value)} 
                     maxLength={3}
                     />
                 </InputContainer>
-                    <ResultsSearch hym={hym}/>
+                    <ResultsSearch hym={hym} choose={chooseHym}/>
             </Container>
         </div>
     );
