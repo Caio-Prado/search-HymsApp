@@ -1,7 +1,11 @@
 import React from 'react';
 import { Container, InputContainer } from './styles';
 import ResultsSearch from '../resultsSearch';
+<<<<<<< HEAD
 import { hinos } from '../../mocks/correlacaoDeHinos';
+=======
+import dataHyms, { hinos } from '../../mocks/correlacaoDeHinos';
+>>>>>>> fb7425017f466a76bde492dd3cf15c1920844972
 import { useState } from 'react';
 
 export default function () {
