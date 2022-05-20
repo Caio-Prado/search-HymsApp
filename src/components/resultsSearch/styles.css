@@ -114,10 +114,14 @@
    padding-top: 2%;
    padding: 5px 10px 5px 10px;
    font-size: 10px;
+   min-width: 90px;
+   max-width: 90px;
+   min-height: 120px;
+   max-height: 120px;
 }
 .container td {
    font-weight: normal;
-   font-size: 12px;
+   font-size: 10px;
    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
    -moz-box-shadow: 0 2px 2px -2px #0E1119;
    box-shadow: 0 2px 2px -2px #0E1119;
