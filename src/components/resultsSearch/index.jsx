@@ -8,65 +8,69 @@ const SearchHymn = () => {
     const [hymns, setHymns] = useState([]);
     const [hymn, setHymn] = useState('');
 
-    useEffect(() => {
+    let hino = hymn.replace(/\D+/g, '')
 
-        api.get(`hinos/${hymn}`).then((response) => { 
-            
+    useEffect(() => {
+        api.get(`hinos/${hino}`).then((response) => { 
+
         setHymns(response.data) })
-    
+
         },[hymns],[hymn])
 
+        if (hino === '0') {
+            setHymn('1')
+        }
+    
     return (
         <div>
             <Container>
                 <h1>Correlação Hinos CCB</h1>
                     <InputContainer>
                         <p>Digite o número do hino abaixo:</p>
-                        <input
-                        oninput="javascript: `if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                        type = "number"
-                        maxlength = "3"
-                        value={hymn}
+                        <input 
+                        type="text"
+                        maxLength={3} 
+                        value={hino}
                         onChange={(e) => setHymn(e.target.value)}
-                        maxLength={3}
-                        />
+                        >   
+                        </input>
                     </InputContainer>
                         <table className="container">
                             <tbody>
                                 <tr>
-                                    <td>Correlação</td>
+                                    <td className='subtitle1'>Correlação</td>
                                     <td className="title">Hinário 5</td>
                                     <td className="title">Hinário 4</td>
                                 </tr>
                                 <tr>
-                                    <td>Hino</td>
-                                    <td>{hymns.id}</td>
-                                    <td>{hymns.hinario4}</td>
+                                    <td className='subtitle'>Hino</td>
+                                    <td className='info'>{hymns.id}</td>
+                                    <td className='info'>{hymns.hinario4}</td>
                                 </tr>
                                 <tr>
-                                    <td>Título</td>
-                                    <td>{hymns.tituloH5}</td>
-                                    <td>{hymns.tituloH4}</td>
+                                    <td className='subtitle'>Título</td>
+                                    <td className='info'>{hymns.tituloH5}</td>
+                                    <td className='info'>{hymns.tituloH4}</td>
                                 </tr>
                                 <tr>
-                                    <td>Acidentes</td>
-                                    <td>{hymns.acidentesH5}</td>
-                                    <td>{hymns.acidentesH4}</td>
+                                    <td className='subtitle'>Acidentes</td>
+                                    <td className='info'>{hymns.acidentesH5}</td>
+                                    <td className='info'>{hymns.acidentesH4}</td>
                                 </tr>
-                            <tr>
-                                    <td>Tonalidade</td>
-                                    <td>{hymns.tonalidadeH5}</td>
-                                    <td>{hymns.tonalidadeH4}</td>
+                                <tr>
+                                    <td className='subtitle'>Tonalidade</td>
+                                    <td className='info'>{hymns.tonalidadeH5}</td>
+                                    <td className='info'>{hymns.tonalidadeH4}</td>
                                 </tr>
-                            <tr>
-                                    <td>Compasso</td>
-                                    <td>{hymns.compassoH5}</td>
-                                    <td>{hymns.compassoH4}</td>
+                                <tr>
+                                    <td className='subtitle'>Compasso</td>
+                                    <td className='info'>{hymns.compassoH5}</td>
+                                    <td className='info'>{hymns.compassoH4}</td>
                                 </tr>
-                            <tr>
-                                    <td>Autores</td>
-                                    <td>{hymns.autoresH5}</td>
-                                    <td>{hymns.autoresH4}</td>
+                                <tr>
+                                    <td className='subtitle'>Autores</td>
+                                    <td className='info'>{hymns.autoresH5}</td>
+                                    <td className='info'>{hymns.autoresH4}</td>
                                 </tr>
                             </tbody>
                         </table>

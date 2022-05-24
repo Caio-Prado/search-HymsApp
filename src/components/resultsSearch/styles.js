@@ -6,9 +6,9 @@ export const Container = styled.div`
     align-items: center;
     width: 1000px;
     height: 100%;
-    background-color: #262525;
+    background-color: #bbbbbb;
     border-radius: 30px;
-    color: #fff;
+    color: #000;
 
     @media (max-width: 900px) {
         width: 100%;
@@ -18,16 +18,18 @@ export const Container = styled.div`
         width: 200px;
         height: 60px;
         outline: none;
-        color: #fff;
-        background: transparent;
-        border: 1px solid #fff;
+        color: #0056B3;
+        background: #efefef;
+        border: 1px solid #033d60;
         font-size: 30px;
         text-align: center;
     }
 
     h1 {
         font-size: 50px;
+        text-transform: uppercase;
         padding-top: 20px;
+        color: #000;
     }
 `;
 
